@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('currentUser')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <span class="app-icon">🚀</span>
+                <h1>TaskMaster</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <span class="avatar">👤</span>
+                    <span id="user-email"></span>
+                    <span class="streak-badge">
+                        <span class="fire-icon">🔥</span>
+                        <span id="header-streak">0</span>
+                    </span>
+                </div>
+                <button id="logout-btn" class="logout-btn">
+                    <span class="logout-icon">⏻</span>
+                    Logout
+                </button>
+            </div>
+        </header>
+        <div class="dashboard">
+            <div class="section calendar-section">
+                <h2><span class="section-icon">📅</span> Calendar</h2>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month"><</button>
+                        <h3 id="month-year"></h3>
+                        <button id="next-month">></button>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid"></div>
+                </div>
+            </div>
+            <div class="section todos-section">
+                <h2><span class="section-icon">📝</span> Todos</h2>
+                <div class="todo-form">
+                    <input type="text" id="todo-input" placeholder="Add a new todo...">
+                    <button id="add-btn">Add</button>
+                </div>
+                <ul id="todo-list"></ul>
+            </div>
+            <div class="section events-section">
+                <h2><span class="section-icon">🎉</span> Events</h2>
+                <div class="event-form">
+                    <input type="text" id="event-input" placeholder="Add a new event...">
+                    <input type="date" id="event-date">
+                    <button id="add-event-btn">Add Event</button>
+                </div>
+                <ul id="event-list"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
